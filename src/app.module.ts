@@ -3,6 +3,7 @@ import {
   Module,
   NestModule,
 } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller.js';
 import { AppService } from './app.service.js';
 import { ConvidadosController } from './convidados/convidados.controller.js';
@@ -18,7 +19,10 @@ import { ProdutosService } from './produtos/produtos.service.js';
 import { ColaboradoresController } from './colaboradores/colaboradores.controller.js';
 
 @Module({
-  imports: [],
+  imports: [
+    // Aula 18: variáveis de ambiente em toda a aplicação.
+    ConfigModule.forRoot({ isGlobal: true }),
+  ],
   controllers: [
     AppController,
     ConvidadosController,
